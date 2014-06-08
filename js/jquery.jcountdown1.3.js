@@ -11,7 +11,7 @@
 		var defaults = {
 				date: (new Date()),
 				updateTime: 1000,
-				htmlTemplate: "<ul class=\"digits\"><li><span>%{d}</span><p>days</p></li><li><span>%{h}</span><p>hours</p></li><li><span>%{m}</span><p>mins</p></li><li><span>%{s}</span><p>sec</p></li></ul>",
+				htmlTemplate: "<ul class=\"digits\"><li><span>%{d}</span><p>天</p></li><li><span>%{h}</span><p>时</p></li><li><span>%{m}</span><p>分</p></li><li><span>%{s}</span><p>秒</p></li></ul>",
 				minus: false,
 				onChange: null,
 				onComplete: null,
