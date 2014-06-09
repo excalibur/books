@@ -1,60 +1,61 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8">
-<link href="main.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>网站建设中</title>
-
-<!-- html5.js for IE less than 9 -->
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<!-- css3-mediaqueries.js for IE less than 9 -->
-<!--[if lt IE 9]>
-	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-<![endif]-->
+---
+layout: default
+---
 
 
-</head>
-<body>
-<div id="wrapper">
- 
-	<section id="counter">
-    	<div class="top_block">        	
-            <div class="title">
-            	<img src="img/logo.png" alt="">
-        		<p>我正在努力的开发本功能！请期待！</p>                
-            </div>
-        	<div class="slider">
-        		<img src="img/photo.jpg" alt="slider image - 1">
-        	</div>
-            <div class="arwleft"></div>
-  		</div>
-            
-        <div class="date">
-        	<span class="text">预计时间</span>
-        	<span id="clock" class="digit">20</span>
-        	<span class="month">7月</span>
-            <div class="arwright"></div>
-        </div>
-            <div class="counter">
-				<ul class="digits">
-                	<li><span>42</span><p>天</p></li>
-                	<li><span>18</span><p>时</p></li>
-                	<li><span>48</span><p>分</p></li>
-                	<li><span>08</span><p>秒</p></li>
-                </ul>			
-            </div>
-      	</section>
+<div class="row">
+  <div class="col-lg-12">
+    <span class="toggler" data-toggle="grid"><span class="entypo-layout"></span></span>
+    <span class="toggler active" data-toggle="list"><span class="entypo-list"></span></span>
 
-	
+
+<ul class="surveys list">
+{% for post in site.posts %}
+  <li class="survey-item row">
+    <div class="col-lg-6">
+      <span class="survey-author">
+        <a href="{{ post.author.url }}">{{ post.author.name }}</a>
+      </span>
+
+      <span class="survey-name">
+      <a href="{{ post.site | prepend: site.baseurl }}"><strong>{{ post.title }}</strong></a>
+      </span>
+
+    </div>
+    
+
+    <div class="col-lg-6">
+
+      <span class="survey-progress">
+        <span class="survey-progress-bg">
+          <span class="survey-progress-fg" style="width: {{ post.progress | "0" }}%;"></span>
+        </span>
+
+        <span class="survey-progress-labels">
+          <span class="survey-progress-label">
+            {{ post.progress | "-" }}%
+          </span>
+          <span class="survey-completes">
+            {{  post.complete | "-" }} / {{ post.chapter | "-" }}
+          </span>
+        </span>
+      </span>
+
+       <span class="survey-end-date ended">
+        {{ post.date | date: "%Y年%m月%d日" }}
+      </span>
+      <span class="survey-stage pull-right">
+        <span class="stage">{{ post.categories }}</span>      
+      </span>
+    </div>
+  </li>
+{% endfor %}
+   
+  </ul>
+  </div>
 </div>
 
-<script src="js/jquery.js" type="text/javascript"></script> 
-<script src="js/jquery.jcountdown1.3.js" type="text/javascript"></script>
-<script src="js/script.js" type="text/javascript"></script>
 
-</body>
-</html>
+
+
+</div>
