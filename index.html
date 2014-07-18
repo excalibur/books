@@ -1,47 +1,61 @@
-<!DOCTYPE HTML>
-<html lang="en-US" >
-    
-    <head>
-        
-        <meta charset="UTF-8">
-        <title>练习</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 0.6.0">
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
-        
-        
-    </head>
-    <body>
-        
-        
-<link rel="stylesheet" href="gitbook/style.css">
+---
+layout: default
+---
 
-        
-<div class="book-langs-index">
-    <div class="inner">
-        <h3>Choose a language</h3>
 
-        <ul class="languages">
-        
-            <li>
-                <a href="./zh\index.html">中文</a>
-            </li>
-        
-            <li>
-                <a href="./en\index.html">English</a>
-            </li>
-        
-        </ul>
+<div class="row">
+  <div class="col-lg-12">
+    <span class="toggler" data-toggle="grid"><span class="entypo-layout"></span></span>
+    <span class="toggler active" data-toggle="list"><span class="entypo-list"></span></span>
+
+
+<ul class="surveys list">
+{% for post in site.posts %}
+  <li class="survey-item row">
+    <div class="col-lg-6">
+      <span class="survey-author">
+        <a href="{{ post.author.url }}">{{ post.author.name }}</a>
+      </span>
+
+      <span class="survey-name">
+      <a href="{{ post.site | prepend: site.baseurl }}"><strong>{{ post.title }}</strong></a>
+      </span>
+
     </div>
+    
+
+    <div class="col-lg-6">
+
+      <span class="survey-progress">
+        <span class="survey-progress-bg">
+          <span class="survey-progress-fg" style="width: {{ post.progress | "0" }}%;"></span>
+        </span>
+
+        <span class="survey-progress-labels">
+          <span class="survey-progress-label">
+            {{ post.progress | "-" }}%
+          </span>
+          <span class="survey-completes">
+            {{  post.complete | "-" }} / {{ post.chapter | "-" }}
+          </span>
+        </span>
+      </span>
+
+       <span class="survey-end-date ended">
+        {{ post.date | date: "%Y年%m月%d日" }}
+      </span>
+      <span class="survey-stage pull-right">
+        <span class="stage">{{ post.categories }}</span>      
+      </span>
+    </div>
+  </li>
+{% endfor %}
+   
+  </ul>
+  </div>
 </div>
 
-        
-        
-    </body>
-    
-</html>
+
+
+
+</div>
